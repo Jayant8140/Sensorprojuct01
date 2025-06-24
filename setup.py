@@ -17,7 +17,7 @@ setup (
   name='Fault deetction',
   version='0.1',
   author='jayant',
-  author_mail='jayantbca012@gmail.com',
-  install_reqirements=get_requirements('requirements.txt'),
+  author_email='jayantbca012@gmail.com',
+  install_require=get_requirements('requirements.txt'),
   packages=find_packages()
 )
