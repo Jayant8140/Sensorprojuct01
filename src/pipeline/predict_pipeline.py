@@ -3,20 +3,25 @@ import os
 import shutil
 import pandas as pd
 import pickle
-import src.logger as logging
+from src.logger import logging
 from src.exception import CustomException
 from flask import Request
 from src.constant import *
 from src.utils.main_utils import MainUtils
 from dataclasses import dataclass
 
+
 @dataclass
 class PredictionPipelineConfig:
-    prediction_output_dirname:str="predictions"
-    prediction_filename="prediction_file.csv"
-    model_file_path:str=os.path.join(artifact_folder,"model.pkl")
-    preprocessor_path:str=os.path.join(artifact_folder,"preprocessor.pkl")
-    prediction_filepath:str=os.path.join(prediction_output_dirname,prediction_filename)
+    prediction_output_dirname: str = "predictions"
+    prediction_file_name: str = "prediction_file.csv"
+    model_file_path: str = os.path.join(artifact_folder, 'model.pkl')
+    preprocessor_path: str = os.path.join(artifact_folder, 'preprocessor.pkl')
+    prediction_file_path: str = None  # Placeholder
+
+    def __post_init__(self):
+        self.prediction_file_path = os.path.join(self.prediction_output_dirname, self.prediction_file_name)
+
 
 class PredictionPipeline:
     def __init__(self,request:Request):
@@ -72,7 +77,7 @@ class PredictionPipeline:
             input_dataframe[prediction_column_name]=input_dataframe[prediction_column_name].map(target_column_mapping)
 
             os.makedirs(self.prediction_pipeline_config.prediction_output_dirname,exist_ok=True)
-            input_dataframe.to_csv(self.prediction_pipeline_config.prediction_filepath,index=False)
+            input_dataframe.to_csv(self.prediction_pipeline_config.prediction_file_path,index=False)
 
             logging.info("prediction completed")
         

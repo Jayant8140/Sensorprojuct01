@@ -34,7 +34,7 @@ class DataIngestion:
     def export_data_into_feature_store_file_path(self)->pd.DataFrame:
         try:
             logging.info(f"Exporting data from MongoDB ")
-            raw_file_path=self.data_ingestion_config.artifect_folder
+            raw_file_path=self.Data_Ingestion_Config.artifact_folder
 
             os.makedirs(raw_file_path,exist_ok=True)
 

@@ -1,8 +1,8 @@
 import sys
 import os
-import src.components.data_ingestion as DataIngestion
-import src.components.data_transformation as DataTransformation
-import src.components.model_trainer as ModelTrainer
+from src.components.data_ingestion import DataIngestion
+from src.components.data_transformation import DataTransformation
+from src.components.model_trainer import ModelTrainer
 from src.exception import CustomException
 
 

@@ -57,7 +57,7 @@ class ModelTrainer:
 
                 test_model_score=accuracy_score(y_test,y_test_pred)
 
-                report[list(model.keys())[i]]=test_model_score
+                report[list(models.keys())[i]]=test_model_score
 
             return report
         except Exception as e:
