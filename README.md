@@ -27,15 +27,17 @@ An end-to-end Machine Learning project that detects faulty sensor readings from 
 
 ## 📁 Project Structure
 
-
+```
 sensor_project/
-├── static/ # CSS files
-├── templates/ # HTML files
-├── src/ # Source code (ML pipeline, model, etc.)
-├── app.py # Flask main app
-├── requirements.txt # Dependencies
-├── setup.py # Python package config
-└── README.md
+├── static/           # CSS, JS, and static assets
+├── templates/        # HTML templates
+├── src/              # Source code (ML pipeline, models, etc.)
+├── app.py            # Flask main application
+├── requirements.txt  # Python dependencies
+├── setup.py          # Package configuration
+└── README.md         # Project documentation
+```
+
 
 ## 🛠️ How to Run the Project Locally
 ```bash
